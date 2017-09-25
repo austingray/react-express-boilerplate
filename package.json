@@ -7,8 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./bin/www",
     "start": "node ./bin/www",
-    "watch": "npm run watch:react",
+    "build": "npm run build:sass | npm run build:react",
+    "build:react": "webpack -p",
+    "build:sass": "node-sass --include-path scss src/scss/style.scss public/build/css/style.css",
+    "watch": "npm run watch:react | npm run watch:sass",
     "watch:react": "webpack --watch --progress --colors --display-error-details",
+    "watch:sass": "node-sass --watch --include-path scss src/scss/style.scss public/build/css/style.css",
     "db:migrate": "knex --knexfile .knex/knexfile.js migrate:latest"
   },
   "repository": {
@@ -25,6 +29,7 @@
     "babel-register": "^6.26.0",
     "express": "^4.15.4",
     "knex": "^0.13.0",
+    "node-sass": "^4.5.3",
     "pg": "^7.3.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
