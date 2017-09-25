@@ -28,4 +28,4 @@ The folder structure:
 - Run database migrations (if they exist): `docker-compose run web yarn run db:migrate`
 
 ### Routing
-Routes are configured in the file `src/react/App/index`.
+React routes are configured in the file `src/react/App/index`. This boilerplate provides a catchall Express route in `app.js`. TODO: add a `routes/` dir.
