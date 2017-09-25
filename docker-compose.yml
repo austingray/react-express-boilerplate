@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: pm2-docker start ./bin/www --watch
+    volumes:
+      - .:/usr/src/app/
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://uduser@postgres/uddb
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: uduser
+      POSTGRES_DB: uddb

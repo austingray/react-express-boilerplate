@@ -1,0 +1,45 @@
+{
+  "name": "react-express-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate to jumpstart the creation of React + Express powered websites",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node ./bin/www",
+    "start": "node ./bin/www",
+    "watch": "npm run watch:react",
+    "watch:react": "webpack --watch --progress --colors --display-error-details",
+    "db:migrate": "knex --knexfile .knex/knexfile.js migrate:latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austingray/react-express-boilerplate.git"
+  },
+  "author": "Austin Gray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/austingray/react-express-boilerplate/issues"
+  },
+  "homepage": "https://github.com/austingray/react-express-boilerplate#readme",
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "express": "^4.15.4",
+    "knex": "^0.13.0",
+    "pg": "^7.3.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "webpack": "^3.6.0"
+  }
+}
