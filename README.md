@@ -19,6 +19,21 @@ The first step to doing this will be handling the new custom routing/file system
 
 This is a major work in progress.
 
+### .reaxpress File Type
+
+Routes are defined in files with an extension of `reaxpress`.
+
+To add js/jsx highlighting in atom editor, add the following in your `config.cson`:
+
+```
+"*":
+  core:
+    customFileTypes:
+      'source.js.jsx': [
+        'reaxpress'
+      ]
+```
+
 ### Prerequisites
 - [Yarn](https://yarnpkg.com/en/)
 - [Docker](https://www.docker.com/community-edition)
