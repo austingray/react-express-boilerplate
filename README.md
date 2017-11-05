@@ -13,7 +13,7 @@ This project is going to become the new Reaxpress. I had a working title but I c
 - A command line utility for managing routes
 - Incorporate state management via a 3rd party library (redux?) or have its own custom state management
 - Have custom routing (can use the old reaxpress as a baseline)
-- Expect a Postgres database and use
+- Expect a Postgres database
 
 The first step to doing this will be handling the new custom routing/file system
 
