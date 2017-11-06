@@ -11,7 +11,7 @@
     "build:react": "webpack -p",
     "build:sass": "node-sass --include-path scss src/scss/style.scss public/build/css/style.css",
     "watch": "npm run watch:react | npm run watch:sass",
-    "watch:react": "webpack --watch --progress --colors --display-error-details",
+    "watch:react": "webpack --watch --progress --colors --display-error-details --config webpack.dev.js",
     "watch:sass": "node-sass --watch --include-path scss src/scss/style.scss public/build/css/style.css",
     "db:migrate": "knex --knexfile .knex/knexfile.js migrate:latest"
   },
@@ -48,6 +48,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
+    "glob": "^7.1.2",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.6.0",
     "webpack-merge": "^4.1.1"

@@ -9,3 +9,6 @@ public/build/js/*
 !public/build/js/.keep
 public/build/css/*
 !public/build/css/.keep
+
+# Custom logging
+.log/

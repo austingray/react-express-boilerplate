@@ -1,0 +1,21 @@
+import React from 'react';
+import template from '../../reaxpress/template';
+
+// React Component
+function About() {
+  return (
+    <div>About</div>
+  );
+}
+
+// Express Route
+const Route = async (req, res) => {
+  const state = {};
+  res.send(template(state, About));
+};
+
+// Export requires 'Component' and 'Route'
+module.exports = {
+  Component: About,
+  Route,
+};

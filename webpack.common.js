@@ -1,12 +1,16 @@
 /* eslint-disable */
 const path = require('path');
+const glob = require('glob');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // the relative path to the build dir
 const buildDirPath = './public/build/js';
 
 module.exports = {
-  entry: path.join(__dirname, 'src/react/App/index.jsx'),
+  entry: [
+    path.join(__dirname, 'src/react/App/index.jsx'),
+    path.join(__dirname, 'routes/routes.js'),
+  ],
   plugins: [
     new CleanWebpackPlugin([buildDirPath]),
   ],
@@ -26,6 +30,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.reaxpress?$/,
+        use: {
+          loader: path.resolve(__dirname, 'reaxpress/webpack/loaders/reaxpress-loader'),
+        },
       },
       {
         test: /\.jsx?$/,
