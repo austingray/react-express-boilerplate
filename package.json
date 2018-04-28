@@ -7,12 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node ./bin/www",
     "start": "node ./bin/www",
-    "build": "npm run build:sass | npm run build:react",
+    "build": "npm run build:react",
     "build:react": "webpack -p",
-    "build:sass": "node-sass --include-path scss src/scss/style.scss public/build/css/style.css",
-    "watch": "npm run watch:react | npm run watch:sass",
-    "watch:react": "webpack --watch --progress --colors --display-error-details",
-    "watch:sass": "node-sass --watch --include-path scss src/scss/style.scss public/build/css/style.css",
+    "watch": "npm run watch:react",
+    "watch:react": "webpack --watch --progress --colors --display-error-details --config webpack.dev.js",
     "db:migrate": "knex --knexfile .knex/knexfile.js migrate:latest"
   },
   "repository": {
@@ -49,6 +47,7 @@
     "eslint-plugin-react": "^7.7.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15",
     "webpack-merge": "^4.1.2"
   }
 }
