@@ -21,7 +21,7 @@ The folder structure:
 
 `public/` - All files that should be publicly accessible via the web server, including the built scripts/css.
 
-`src/` - The source files for react, scss, and pre-optimized images.
+`src/` - The source files for react and pre-optimized images.
 
 `template/` - The template file (the site html) and the method that accepts a react component and returns the template html with the server rendered react component.
 

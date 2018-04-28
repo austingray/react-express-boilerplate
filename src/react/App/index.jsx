@@ -30,7 +30,7 @@ class App extends React.Component {
     super(props);
 
     // get the state from the server
-    const appState = this.props.state || window.__STATE__; // eslint-disable-line no-underscore-dangle max-len
+    const appState = this.props.state || window.__STATE__; // eslint-disable-line
 
     // get the current route
     const activeRoute = routes.find(route => route.url === appState.url) || errorRoute;
