@@ -1,34 +1,50 @@
-# React Express Boilerplate
-A boilerplate to jumpstart the creation of React + Express powered websites.
+# React Express GraphQL Boilerplate
+A boilerplate to jumpstart the creation of React + Express + GraphQL powered websites.
 
-### Notes
 This is a major work in progress.
+
+# Development
+```
+Is all that we see or seem
+But a dream within a dream?
+- Edgar Allen Poe
+```
 
 ## Prerequisites
 - [Yarn](https://yarnpkg.com/en/)
 - [Docker](https://www.docker.com/community-edition)
 
-## Development
+## Getting Started
 - Install dependencies: `yarn`
-- Eslint is configured to use Airbnb style guide
+- Start the server: `docker-compose up`
 - Watch changes to assets: `yarn run watch`
 
-The folder structure:
+### Understanding: Docker
+This project uses docker to run the app locally (which I am relatively new to still). The app is built using the `Dockerfile` in the root of this project, as well as the other images specified inside the `docker-compose.yml` file.
 
-`.knex/` - Keeps the knexfile that specifies the database connection. It also houses the database migrations. See http://knexjs.org/ for documentation.
+To start the app, run `docker-compose up`.
 
-`bin/` - Project scripts.
+If you want to execute commands inside of your running docker environment, use the following:
 
-`public/` - All files that should be publicly accessible via the web server, including the built scripts/css.
+```bash
+docker-compose run web <your-command>
+```
 
-`src/` - The source files for react and pre-optimized images.
+### Understanding: The Database
+This project is setup using a Postgres database. It also uses Knex.js to interface with the database using javascript. Some things to remember:
 
-`template/` - The template file (the site html) and the method that accepts a react component and returns the template html with the server rendered react component.
+- The database connection is configured in `.knex/knexfile.js`.
+- Migration files exist in `.knex/migrations/`. (There is an init migration to get started). 
+- Migrations can be run with `docker-compose run web yarn run db:migrate`
 
-## Run
-- This projects uses docker-compose: `docker-compose up`
-- Build assets: `yarn run build`
-- Run database migrations (if they exist): `docker-compose run web yarn run db:migrate`
+### Understanding: React
+This project uses React for rendering its views. Those components can be found in `src/react`. Inside of that is an `App` dir that contains the React for this project. Inside of *that* is the two directories that matter:
 
-## Routing
-React routes are configured in the file `src/react/App/index`. This boilerplate provides a catchall Express route in `app.js`. TODO: add a `routes/` dir.
+- `Components` - The shared, reusable React components that will make up your UI, like buttons, headings, menus, etc.
+- `Views` - The one-off React components that represent a single endpoint in the app, such as /home or /todos, etc, made up of many smaller react components.
+
+### Understanding: GraphQL
+This is being worked on currently, check back later for a detailed writeup.
+
+### Understanding: Routing
+This is being worked on currently, check back later for a detailed writeup.

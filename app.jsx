@@ -1,16 +1,28 @@
 import express from 'express';
 import path from 'path';
+import bodyParser from 'body-parser';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import { makeExecutableSchema } from 'graphql-tools';
+import typeDefs from './graphql/typeDefs';
+import resolvers from './graphql/resolvers';
 import template from './template';
 import App from './src/react/App';
 
+// get an express instance
 const app = express();
 
-// middleware
+// create a public dir for accessing assets in the browser
 app.use(express.static(path.join(__dirname, 'public')));
 
-// view engine
-app.set('views', path.join(__dirname, 'template'));
-app.set('view engine', 'ejs');
+// graphql schema
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+// graphql and graphiql endpoint
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 // use template.html on every route
 app.get('*', (req, res) => {
