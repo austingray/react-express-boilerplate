@@ -4,6 +4,9 @@
 # Node.js
 node_modules/
 
+# Logs
+.log/
+
 # Build
 public/build/js/*
 !public/build/js/.keep
