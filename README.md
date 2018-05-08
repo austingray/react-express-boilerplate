@@ -17,7 +17,12 @@ But a dream within a dream?
 ## Getting Started
 - Install dependencies: `yarn`
 - Start the server: `docker-compose up`
+
+Now navigate your browser to `http://localhost:3000/` and you should see the rendered Homepage component.
+
 - Watch changes to assets: `yarn run watch`
+
+Any react file changes in `src/react/App/` will automatically compile. 
 
 ### Understanding: Docker
 This project uses docker to run the app locally (which I am relatively new to still). The app is built using the `Dockerfile` in the root of this project, as well as the other images specified inside the `docker-compose.yml` file.
